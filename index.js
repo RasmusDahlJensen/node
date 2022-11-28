@@ -1,4 +1,5 @@
 import express from "express";
+import { router as songRouter } from "./routes/song.router.js";
 
 const app = express();
 const port = 4000;
@@ -19,9 +20,7 @@ app.get("/contact", (req, res) => {
 	res.send("Contact us");
 });
 
-app.post("/song", (req, res) => {
-	console.log(req.body);
-});
+app.use(songRouter);
 
 app.listen(port, () => {
 	console.log(`Webserver running on http://localhost:${port}`);
