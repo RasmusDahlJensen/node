@@ -1,7 +1,7 @@
 import express from "express";
 import SongController from "../Controllers/songController.js";
 const controller = new SongController();
-const router = express.Router();
+const SongRouter = express.Router();
 
 // Endpoint - List
 SongRouter.get("/song", (req, res) => {
@@ -10,5 +10,3 @@ SongRouter.get("/song", (req, res) => {
 });
 
 export default SongRouter;
-
-export { router };

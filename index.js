@@ -1,5 +1,5 @@
 import express from "express";
-import { router as songRouter } from "./routes/song.router.js";
+import SongRouter from "./Routes/song.router.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -23,7 +23,7 @@ app.get("/contact", (req, res) => {
 	res.send("Contact us");
 });
 
-app.use(songRouter);
+app.use(SongRouter);
 
 app.listen(port, () => {
 	console.log(`Webserver running on http://localhost:${port}`);
