@@ -1,5 +1,5 @@
-    Installer npm pakken mysql2 -X
-    Lave en config fil som kan tilkoble din lokale database -X
+    Installer npm pakken mysql2
+    Lave en config fil som kan tilkoble din lokale database
 
     Hente en liste af sange inde fra din controller og router. Listen skal indeholde titel og navn på artist.
 

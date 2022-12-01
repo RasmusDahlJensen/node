@@ -34,6 +34,23 @@ class SongController {
 	};
 
 	//Create user
+	create = (req, res) => {
+		//Destructure
+		const { title, content, artist_id } = req.body;
+
+		if (title && content && artist_id) {
+			const sql = `INSERT INTO song(title, content, artist_id) 
+							VALUES(?, ?, ?)`;
+
+			db.query(sql, [title, content, artist_id], (err, result) => {
+				if (err) {
+					console.error(err);
+				} else {
+					console.log(result);
+				}
+			});
+		}
+	};
 }
 
 export default SongController;
