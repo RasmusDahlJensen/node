@@ -17,6 +17,23 @@ class SongController {
 			}
 		});
 	};
+	//Henter detaljer fra en specifik sang, med ID, titel, brødtekst og artist navn
+
+	details = (req, res) => {
+		const id = req.params.id || 0;
+		const sql =
+			"SELECT s.title, s.content, a.name FROM song s JOIN artist a ON s.artist_id = a.id WHERE s.id = ?";
+
+		db.query(sql, [id], (err, result) => {
+			if (err) {
+				console.error(err);
+			} else {
+				res.json(result);
+			}
+		});
+	};
+
+	//Create user
 }
 
 export default SongController;
