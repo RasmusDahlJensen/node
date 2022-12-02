@@ -32,7 +32,6 @@ class SongController {
 			}
 		});
 	};
-
 	//Create user
 	create = (req, res) => {
 		//Destructure
