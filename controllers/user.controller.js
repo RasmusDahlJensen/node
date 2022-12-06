@@ -35,6 +35,20 @@ class UserController {
 		});
 		res.json(result);
 	};
+
+	create = async (req, res) => {
+		// console.log(req.body);
+		const { firstname, lastname, email, password } = req.body;
+
+		if (firstname && lastname && email && password) {
+			const model = await UserModel.create(req.body);
+			return res.json({
+				newId: model.id,
+			});
+		} else {
+			res.sendStatus(418);
+		}
+	};
 }
 
 export default UserController;
