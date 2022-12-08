@@ -49,6 +49,22 @@ class UserController {
 			res.sendStatus(418);
 		}
 	};
+
+	update = async (req, res) => {
+		// console.log("user update");
+		const { id } = req.params || 0;
+		const { firstname, lastname, email, password } = req.body;
+
+		if (id && firstname && lastname && email && password) {
+			const model = await UserModel.create(req.body);
+			return res.json({
+				msf: "Record updated",
+			});
+		} else {
+			res.sendStatus(418);
+		}
+		s;
+	};
 }
 
 export default UserController;

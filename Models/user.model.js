@@ -38,6 +38,7 @@ UserModel.init(
 		modelName: "user",
 		freezeTableName: true,
 		underscored: true,
+		hooks: {},
 		//createdAt: false,
 		//updatedAt: false
 	}
