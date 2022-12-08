@@ -38,7 +38,14 @@ UserModel.init(
 		modelName: "user",
 		freezeTableName: true,
 		underscored: true,
-		hooks: {},
+		hooks: {
+			beforeCreate: async (user, options) => {
+				user.password = await createHash(user.password);
+			},
+			beforeUpdate: async (user, options) => {
+				user.password = await createHash(user.password);
+			},
+		},
 		//createdAt: false,
 		//updatedAt: false
 	}
