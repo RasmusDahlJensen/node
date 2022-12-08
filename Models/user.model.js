@@ -46,8 +46,6 @@ UserModel.init(
 				user.password = await createHash(user.password);
 			},
 		},
-		//createdAt: false,
-		//updatedAt: false
 	}
 );
 
