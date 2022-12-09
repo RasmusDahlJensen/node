@@ -1,4 +1,4 @@
-import { sequelize } from "../config/sequelize.config.js";
+import { sequelize } from "../Config/sequelize.config.js";
 import { DataTypes, Model } from "sequelize";
 
 class OrgModel extends Model {}
@@ -7,12 +7,10 @@ OrgModel.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
-			autoincremenent: true,
+			autoIncrement: true,
 			allowNull: false,
 			primaryKey: true,
 		},
-	},
-	{
 		title: {
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -37,7 +35,7 @@ OrgModel.init(
 	{
 		sequelize,
 		modelName: "org",
-		freezeTableNAme: true,
+		freezeTableName: true,
 		underscored: true,
 	}
 );
