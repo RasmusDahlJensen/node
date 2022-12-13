@@ -35,7 +35,7 @@ class AuthenticateController {
 		}
 	};
 
-	protected = async (res, req) => {
+	protected = async (req, res) => {
 		res.sendStatus(200);
 	};
 }

@@ -2,10 +2,13 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
-const verifyToken = (req, res) => {
-	const bearerHeader = req.headers("authorization");
+const verifyToken = (req, res, next) => {
+	// Henter authorization header
+	const bearerHeader = req.headers["authorization"];
 	if (bearerHeader) {
+		// Udskiller token fra Bearer string
 		const access_token = bearerHeader.substring(7);
+		// Verificerer token med jwt og private key
 		jwt.verify(access_token, process.env.PRIVATE_KEY, (err, result) => {
 			if (!err) {
 				next();
@@ -14,9 +17,8 @@ const verifyToken = (req, res) => {
 			}
 		});
 	} else {
-		res.sendStatus(403);
+		res.sendStatus(401);
 	}
-	next();
 };
 
 export default verifyToken;
